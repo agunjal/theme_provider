@@ -6,9 +6,10 @@ function Content(props, context) {
   const state = context[THEME_KEY]
 
   const strStyle = {
-    backgroundColor: `${state.theme}`,
-    width: '100%',
-    height: '100%'
+    background: `${state.theme}`,
+    flex: '1 1 0%',
+    padding: '40px',
+    color: 'rgb(102, 102, 102)'
   }
   return (
     <div style={strStyle}>

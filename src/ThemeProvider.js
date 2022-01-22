@@ -5,27 +5,30 @@ export const THEME_KEY = '__THEME__'
 
 export default class ThemeProvider extends React.Component {
   state = {
-    theme: 'black'
+    theme: 'white'
   }
 
   static childContextTypes = {
     [THEME_KEY]: {
-      theme: PropTypes.string.isRequired,
-      handler: PropTypes.func
+      theme: PropTypes.string,
+      handleChange: PropTypes.func
     }
   }
 
   getChildContext() {
     return {
       [THEME_KEY]: {
-        theme: this.theme,
-        handler: this.handleChange
+        theme: this.state.theme,
+        handleChange: this.handleChange
       }
     }
   }
 
-  handleChange = (theme) => {
-    console.log(theme)
+  handleChange = (e) => {
+    this.setState({
+      theme: e.target.value,
+      handleChange: this.handleChange
+    })
   }
 
   render() {

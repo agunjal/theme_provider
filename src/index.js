@@ -7,11 +7,23 @@ import withTheme from './withTheme'
 import Content from './Content'
 
 const Theme1 = withTheme(ThemeSwitcher)
+const Theme2 = withTheme(ThemeSwitcher)
+
+const mainStyle = {
+  height: '100vh',
+  display: 'flex',
+  flexDirection: 'column'
+}
 
 const App = () => (
   <ThemeProvider>
-    <Content />
-    <Theme1 />
+    <main style={mainStyle}>
+      <div className="header-section">
+        <Theme1 themeColor="red" />
+        <Theme2 themeColor="blue" />
+      </div>
+      <Content />
+    </main>
   </ThemeProvider>
 )
 
